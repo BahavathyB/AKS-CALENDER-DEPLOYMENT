@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: new-calendar-application
+  name: new-calender-application
   namespace: new-calender
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: new-calendar-application
+      app: new-calender-application
   template:
     metadata:
       labels:
-        app: new-calendar-application
+        app: new-calender-application
     spec:
       containers:
-        - name: new-calendar-application
+        - name: new-calender-application
           image: bahavathyacr.azurecr.io/new-calender-app:latest
           ports:
             - containerPort: 80
@@ -22,45 +22,38 @@ spec:
             - name: ASPNETCORE_ENVIRONMENT
               value: "Production"
             - name: ConnectionStrings__DefaultConnection
-              value: "/app/data/appointments.db"   # SQLite path example
-          volumeMounts:
-            - name: db-volume
-              mountPath: /app/data
-      volumes:
-        - name: db-volume
-          emptyDir: {}   # NOTE: AKS pods will lose DB on restart (SQLite not recommended)
-
+              value: "Data Source=/app/appointments.db"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: new-calendar-service
+  name: new-calender-service
   namespace: new-calender
 spec:
   type: LoadBalancer
+  selector:
+    app: new-calender-application
   ports:
     - port: 80
       targetPort: 80
-  selector:
-    app: new-calendar-application
-
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: new-calendar-ingress
+  name: new-calender-ingress
   namespace: new-calender
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx
   rules:
-    - host: calendar.example.com
+    - host: calender.example.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: new-calendar-service
+                name: new-calender-service
                 port:
                   number: 80

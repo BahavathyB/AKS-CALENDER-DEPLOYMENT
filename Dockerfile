@@ -35,16 +35,18 @@ RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 WORKDIR /app
 
-# Create directory for SQLite database (AZURE ADDITION)
-RUN mkdir -p /app/data
+# Create directory for SQLite database
+RUN mkdir -p /app
 
 # Copy published app
 COPY --from=publish /app/publish .
 
-# Set environment variables for Azure (AZURE ADDITION)
+# ✅ COPY THE SQLITE DATABASE (IMPORTANT)
+COPY DisprzTraining/DisprzTraining/appointments.db /app/appointments.db
+
+# Set environment variables
 ENV ASPNETCORE_URLS=http://+:80
 ENV ASPNETCORE_ENVIRONMENT=Production
 
-# Expose port 80
 EXPOSE 80
 ENTRYPOINT ["dotnet", "DisprzTraining.dll"]
