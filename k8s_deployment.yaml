@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calendar-app
+  namespace: calendar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calendar-app
+  template:
+    metadata:
+      labels:
+        app: calendar-app
+    spec:
+      containers:
+        - name: calendar-app
+          image: bahavathyacr.azurecr.io/new-calender-app:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+            - name: ConnectionStrings__DefaultConnection
+              value: "/app/data/appointments.db"   # SQLite path example
+          volumeMounts:
+            - name: db-volume
+              mountPath: /app/data
+      volumes:
+        - name: db-volume
+          emptyDir: {}   # NOTE: AKS pods will lose DB on restart (SQLite not recommended)
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: calendar-service
+  namespace: calendar
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: calendar-app
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: calendar-ingress
+  namespace: calendar
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: calendar.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: calendar-service
+                port:
+                  number: 80
