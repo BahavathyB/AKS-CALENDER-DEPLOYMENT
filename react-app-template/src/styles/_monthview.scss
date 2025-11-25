@@ -1,0 +1,72 @@
+// Import variables
+@import './variables';
+
+.month-view {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bg-very-light-gray);
+  padding-bottom: 10px;
+  
+  .month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    // First row (headers) = auto height, remaining rows = equal flexible height
+    grid-auto-rows: 1fr;
+    grid-template-rows: auto repeat(6, 1fr);
+    border-top: 1px solid var(--border-light-gray);
+    border-left: 1px solid var(--border-light-gray);
+    height: 100%;
+  }
+  
+  .month-header {
+    text-align: center;
+    font-weight: 600;
+    padding: 6px; // smaller padding for header
+    background: var(--bg-header-gray);
+    border-right: 1px solid var(--border-light-gray);
+    border-bottom: 1px solid var(--border-light-gray);
+    font-size: 13px;
+    color: var(--text-header);
+  }
+  
+  .month-cell {
+    border-right: 1px solid var(--border-light-gray);
+    border-bottom: 1px solid var(--border-light-gray);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100px; // ensures decent space for appointments
+    
+    .cell-date {
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    
+    .cell-appointments {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      
+      .cell-appt {
+        background: var(--primary-blue);
+        color: white;
+        font-size: 11px;
+        border-radius: 3px;
+        padding: 4px 6px;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          background: var(--primary-blue-hover);
+        }
+      }
+    }
+  }
+}

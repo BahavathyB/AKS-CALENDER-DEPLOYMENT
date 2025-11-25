@@ -1,0 +1,253 @@
+// Import variables
+@import './variables';
+
+.sidebar {
+  flex: 0 0 280px;
+  height: 100vh;
+  overflow: hidden; // Changed from overflow-y: auto
+  transition: all 0.3s ease;
+  
+  &.closed {
+    flex: 0 0 50px;
+  }
+  
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  // NEW: Fixed section that doesn't scroll
+  .sidebar-fixed-section {
+    flex: 0 0 auto;
+  }
+  
+  // NEW: Scrollable section for appointments
+  .sidebar-scrollable-section {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+  }
+  
+  .collapse-btn {
+    position: absolute;
+    top: 10px;
+    left: -15px;
+    background: var(--primary-blue);
+    color: var(--bg-white);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 2000;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidebar-header {
+    background: var(--primary-blue-hover);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    
+    p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+  }
+  
+  .sidebar-date {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    margin: 10px 0;
+    
+    button {
+      background: var(--primary-blue-hover);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background 0.2s ease;
+      margin: 0 12px;
+      
+      &:hover {
+        background: var(--primary-blue-dark);
+      }
+    }
+    
+    span.date-label {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--primary-blue);
+      min-width: 100px;
+      text-align: center;
+    }
+  }
+  
+  .appointment-list {
+    padding: 0 16px 16px;
+    
+    h3 {
+      margin: 16px 0 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-medium-gray);
+    }
+    
+    .appointment-item {
+      margin-bottom: 12px;
+      padding: 10px;
+      background: var(--bg-white);
+      border-radius: 8px;
+      box-shadow: 0 1px 3px var(--shadow-appointment);
+      
+      .time {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      
+      .title {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 2px 0;
+      }
+      
+      .description {
+        font-size: 12px;
+        color: var(--text-gray);
+      }
+      
+      .appt-label {
+        display: inline-block;
+        margin-top: 4px;
+        background: var(--bg-legend);
+        font-size: 11px;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    }
+  }
+  
+  .user-greeting {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    
+    p {
+      margin: 0;
+      font-size: 25px;
+      color: var(--bg-white-alt);
+      font-weight: 500;
+    }
+    
+    .timezone-text {
+      margin: 2px 0 0 0;
+      font-size: 13px;
+      color: var(--text-white-transparent);
+      font-weight: 400;
+      opacity: 0.9;
+    }
+  }
+}
+
+.date-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0;
+  
+  .date-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-purple);
+  }
+  
+  button {
+    background: var(--primary-blue);
+    color: var(--bg-white);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    
+    svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.5;
+    }
+    
+    &:hover {
+      background: var(--primary-blue-hover);
+    }
+    
+    &:active {
+      background: var(--primary-blue-darker);
+    }
+  }
+  
+  .date-picker {
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 14px;
+    color: var(--text-blue);
+    cursor: pointer;
+    
+    &:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 4px var(--shadow-blue-focus-light);
+    }
+  }
+}
+
+/* Color legend layout */
+.color-legend {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text, var(--text-dark));
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-left: 20px;
+}

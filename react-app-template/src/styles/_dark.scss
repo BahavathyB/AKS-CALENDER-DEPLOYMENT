@@ -1,0 +1,401 @@
+/* ===========================
+   Dark Theme Overrides
+=========================== */
+body[data-theme="dark"] {
+  /* Base variables */
+  --bg-color: #1e1e1e;
+  --text-color: #f5f5f5;
+  --slot-bg: #2a2a2a;
+  --border-color: #444;
+  --now-line-color: #ff5555;
+
+  --header-bg: #2a2a2a;
+  --card-bg: #2e2e2e;
+  --card-border: #555;
+  --input-bg: #333;
+}
+
+/* App background + text */
+body[data-theme="dark"] .app,
+body[data-theme="dark"] .main-content {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Page Header */
+body[data-theme="dark"] .page-header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+
+  h2 {
+    color: var(--text-color);
+  }
+  .subtitle {
+    color: #aaa;
+  }
+}
+
+/* Floating Add Button */
+body[data-theme="dark"] .add-btn {
+  background: #0d7a0d;
+  color: white;
+
+  &:hover {
+    background: #096009;
+  }
+}
+
+/* Error Modal */
+body[data-theme="dark"] .error-modal {
+  background: var(--card-bg);
+  color: var(--text-color);
+
+  h3 {
+    color: #ff6b6b;
+  }
+
+  p {
+    color: var(--text-color);
+  }
+
+  button {
+    background: #ff4444;
+    &:hover {
+      background: #cc0000;
+    }
+  }
+}
+
+/* Login Page */
+body[data-theme="dark"] .login-container {
+  background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+}
+
+body[data-theme="dark"] .login-title {
+  color: #90caf9;
+}
+
+body[data-theme="dark"] .login-form {
+  background: var(--card-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+
+  input {
+    background: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+
+  button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color:#1976d2 ;
+  }
+  select {
+    background: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+}
+
+/* Modal */
+body[data-theme="dark"] .modal-content {
+  background: var(--card-bg);
+  color: var(--text-color);
+
+  input,
+  select {
+    background: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+}
+
+body[data-theme="dark"] .modal-actions button[type="button"] {
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+/* Sidebar */
+body[data-theme="dark"] .sidebar {
+  background: var(--bg-color);
+  color: var(--text-color);
+
+  .collapse-btn {
+    background: #1976d2;
+    color: #fff;
+  }
+
+  .sidebar-header {
+    background: #0d47a1;
+    color: #fff;
+  }
+
+  .sidebar-date {
+    button {
+      background: #1976d2;
+      &:hover {
+        background: #0d47a1;
+      }
+    }
+    span {
+      color: var(--text-color);
+    }
+  }
+
+  .appointment-list {
+    h3 {
+      color: var(--text-color);
+    }
+
+    .appointment-item {
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid var(--card-border);
+
+      .time {
+        color: #90caf9;
+      }
+
+      .description {
+        color: #aaa;
+      }
+
+      .appt-label {
+        background: #37474f;
+        color: #90caf9;
+      }
+    }
+  }
+}
+
+/* Timeline */
+body[data-theme="dark"] .timeline {
+  background: var(--bg-color);
+
+  .time-slot {
+    background: var(--slot-bg);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .time-label {
+    color: #bbb;
+  }
+
+  .appointment-block {
+    background: #1976d2;
+    color: white;
+
+    &:hover {
+      background: #1565c0;
+    }
+  }
+
+  .now-line {
+    background: var(--now-line-color);
+
+    &::before {
+      background: var(--now-line-color);
+    }
+  }
+}
+/* Month View - Dark Theme */
+body[data-theme="dark"] .month-view {
+  background: var(--bg-color);
+
+  .month-grid {
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+  }
+
+  .month-header {
+    background: var(--header-bg);
+    color: var(--text-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .month-cell {
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+
+    .cell-date {
+      color: var(--text-color);
+    }
+
+    .cell-appointments {
+      .cell-appt {
+        background: #3a76f0;
+        color: white;
+
+        &:hover {
+          background: #2e5bbd;
+        }
+      }
+    }
+  }
+}
+
+/* Week View - Dark Theme */
+body[data-theme="dark"] .week-view {
+  background: var(--bg-color);
+
+  .week-grid {
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+  }
+
+  .week-day {
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+
+    .day-header {
+      color: var(--text-color);
+    }
+
+    .day-appointments {
+      .appointment-block {
+        background: #3a76f0;
+        color: white;
+
+        &:hover {
+          background: #2e5bbd;
+        }
+      }
+
+      .empty-text {
+        color: #888;
+      }
+    }
+  }
+}
+body[data-theme="dark"] .page-header {
+  background: #2a2a2a;
+  border-bottom: 1px solid #444;
+
+  h2 {
+    color: #90caf9;
+  }
+
+  .header-right {
+    select.view-selector {
+      background: #333;
+      color: #f5f5f5;
+      border: 1px solid #555;
+
+      &:hover {
+        border-color: #90caf9;
+      }
+    }
+
+    .theme-toggle {
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+/* Dark Theme */
+body[data-theme="dark"] .date-nav {
+  .date-label { color: #90caf9; }
+  button { background: #90caf9; color: #1e1e1e; &:hover { background: #64b5f6; } }
+}
+/* Legend styles */
+.color-legend {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-color); /* adapts automatically */
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2); /* light mode border */
+}
+
+/* Dark theme overrides */
+body[data-theme="dark"] .legend-item {
+  color: var(--text-color);
+}
+
+body[data-theme="dark"] .legend-dot {
+  border: 1px solid rgba(255, 255, 255, 0.3); /* light border for visibility */
+}
+body[data-theme="dark"] .appointment-item .appt-label {
+  color: #fff;
+}
+body[data-theme="dark"] {
+  .page-header {
+    background: #1e1e1e;
+    border-bottom: 1px solid #333;
+
+    h2 {
+      color: #90caf9; // lighter blue in dark mode
+    }
+
+    .header-right {
+      select.view-selector {
+        background: #2c2c2c;
+        border: 1px solid #555;
+        color: #eee;
+
+        &:hover {
+          border-color: #90caf9;
+        }
+      }
+
+      .search-bar {
+        background: #2c2c2c;
+        border: 1px solid #444;
+        color: #eee;
+
+        input {
+          color: #eee;
+        }
+
+        .search-icon {
+          color: #aaa;
+        }
+
+        &:focus-within {
+          border-color: #90caf9;
+          background: #1e1e1e;
+        }
+      }
+
+      .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+[data-theme="dark"] {
+  .loading-container {
+    background: var(--bg-primary, #1a1a1a);
+  }
+  
+  .loading-spinner {
+    color: #64b5f6;
+  }
+}

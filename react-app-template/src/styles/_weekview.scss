@@ -1,0 +1,95 @@
+// Import variables
+@import './variables';
+
+.week-view {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background: var(--bg-very-light-gray);
+  height: calc(100vh - 100px);
+  
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-top: 1px solid var(--border-light-gray);
+    border-left: 1px solid var(--border-light-gray);
+    height: 100%;
+  }
+  
+  .week-day {
+    border-right: 1px solid var(--border-light-gray);
+    border-bottom: 1px solid var(--border-light-gray);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    
+    .day-header {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text-medium);
+      text-align: center;
+    }
+    
+    .day-appointments {
+      flex: 1;
+      position: relative;
+      
+      .appointment-block {
+        background: var(--primary-blue);
+        color: white;
+        border-radius: 4px;
+        padding: 4px 6px;
+        margin-bottom: 4px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          background: var(--primary-blue-hover);
+          transform: translateY(-2px);
+        }
+      }
+      
+      .empty-text {
+        font-size: 12px;
+        color: var(--text-light);
+        text-align: center;
+        margin-top: 12px;
+      }
+    }
+  }
+}
+
+/* Dark Theme Overrides */
+body[data-theme="dark"] .week-view {
+  background: var(--bg-color);
+  
+  .week-grid {
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+  }
+  
+  .week-day {
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    
+    .day-header {
+      color: var(--text-color);
+    }
+    
+    .day-appointments {
+      .appointment-block {
+        background: var(--primary-blue-week);
+        
+        &:hover {
+          background: var(--primary-blue-week-hover);
+        }
+      }
+      
+      .empty-text {
+        color: var(--text-gray-dark);
+      }
+    }
+  }
+}

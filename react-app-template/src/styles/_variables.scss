@@ -1,0 +1,259 @@
+// ===========================
+// Color Variables
+// ===========================
+
+// Primary Colors
+$primary-blue: #1976d2;
+$primary-blue-light: #90caf9;
+$primary-blue-hover: #1565c0;
+$primary-blue-alt: #207edc;
+$primary-blue-dark: #303f9f;
+$primary-blue-darker: #0d47a1;
+$primary-blue-week: #3a76f0;
+$primary-blue-week-hover: #2e5bbd;
+$primary-blue-loading: #64b5f6;
+
+// Success Colors
+$success-green: rgb(5, 147, 5);
+$success-green-hover: rgb(4, 122, 4);
+$success-green-dark: #0d7a0d;
+$success-green-dark-hover: #096009;
+$success-link: rgb(46, 172, 46);
+$success-link-hover: rgb(98, 203, 98);
+
+// Error Colors
+$error-red: #dc3545;
+$error-red-hover: #c82333;
+$error-red-light: #ff6b6b;
+$error-red-dark: #ff4444;
+$error-red-dark-hover: #cc0000;
+$error-text: red;
+
+// Background Colors
+$bg-white: #fff;
+$bg-white-alt: #ffffff;
+$bg-light-gray: #f5f5f5;
+$bg-very-light-gray: #fafafa;
+$bg-header-gray: #f0f0f0;
+$bg-sidebar: #f8f9fa;
+$bg-legend: #e0f0ff;
+$bg-dark: #1e1e1e;
+$bg-dark-secondary: #2c2c2c;
+$bg-dark-tertiary: #2a2a2a;
+$bg-dark-card: #2e2e2e;
+$bg-dark-input: #333;
+$bg-dark-slot: #2a2a2a;
+$bg-dark-loading: #1a1a1a;
+$bg-dark-appt-label: #37474f;
+
+// Gradient Colors
+$gradient-start: #feffff;
+$gradient-end: #ffffff;
+$gradient-dark-start: #1e1e1e;
+$gradient-dark-end: #2a2a2a;
+
+// Border Colors
+$border-light: #e0e0e0;
+$border-gray: #ccc;
+$border-light-gray: #ddd;
+$border-dark: #333;
+$border-dark-secondary: #444;
+$border-dark-tertiary: #555;
+$border-legend-light: rgba(0, 0, 0, 0.2);
+$border-legend-dark: rgba(255, 255, 255, 0.3);
+
+// Text Colors
+$text-dark: #333;
+$text-medium: #666;
+$text-medium-alt: #999;
+$text-light: #aaa;
+$text-light-alt: #bbb;
+$text-gray: #777;
+$text-gray-dark: #888;
+$text-medium-gray: #555;
+$text-white: #eee;
+$text-white-alt: #f5f5f5;
+$text-error: #444;
+$text-link: #84a7cb;
+$text-header: #444;
+$text-purple: #3e0977;
+$text-blue: #043566;
+$text-white-transparent: rgba(255, 255, 255, 0.8);
+
+// Button Colors
+$btn-danger: #d32f2f;
+$btn-danger-hover: #b71c1c;
+
+// Modal Colors
+$modal-overlay: rgba(0, 0, 0, 0.6);
+$modal-overlay-dark: rgba(0, 0, 0, 0.6);
+
+// Overlay Colors
+$overlay-light: rgba(0, 0, 0, 0.08);
+$overlay-light-hover: rgba(0, 0, 0, 0.1);
+$overlay-dark: rgba(255, 255, 255, 0.1);
+$overlay-sidebar: rgba(0, 0, 0, 0.3);
+$overlay-blur: rgba(0, 0, 0, 0.5);
+
+// Shadow Colors
+$shadow-blue-light: rgba(25, 118, 210, 0.1);
+$shadow-blue-dark: rgba(144, 202, 249, 0.2);
+$shadow-blue-focus: rgba(25, 118, 210, 0.5);
+$shadow-blue-focus-light: rgba(25, 118, 210, 0.4);
+$shadow-dark: rgba(0, 0, 0, 0.3);
+$shadow-light: rgba(0, 0, 0, 0.2);
+$shadow-medium: rgba(0, 0, 0, 0.2);
+$shadow-modal: rgba(0, 0, 0, 0.15);
+$shadow-sidebar: rgba(0, 0, 0, 0.2);
+$shadow-appointment: rgba(0, 0, 0, 0.1);
+$shadow-appointment-light: rgba(0, 0, 0, 0.12);
+$shadow-appointment-hover: rgba(0, 0, 0, 0.2);
+$shadow-dark-card: rgba(0, 0, 0, 0.6);
+$shadow-now-line: rgba(255, 0, 0, 0.5);
+
+// Special Colors
+$now-line-color: #ff5555;
+$highlight-border: #ff9800;
+
+// ===========================
+// CSS Custom Properties
+// ===========================
+:root {
+  // Primary Colors
+  --primary-blue: #{$primary-blue};
+  --primary-blue-light: #{$primary-blue-light};
+  --primary-blue-hover: #{$primary-blue-hover};
+  --primary-blue-alt: #{$primary-blue-alt};
+  --primary-blue-dark: #{$primary-blue-dark};
+  --primary-blue-darker: #{$primary-blue-darker};
+  --primary-blue-week: #{$primary-blue-week};
+  --primary-blue-week-hover: #{$primary-blue-week-hover};
+  --primary-blue-loading: #{$primary-blue-loading};
+
+  // Success Colors
+  --success-green: #{$success-green};
+  --success-green-hover: #{$success-green-hover};
+  --success-green-dark: #{$success-green-dark};
+  --success-green-dark-hover: #{$success-green-dark-hover};
+  --success-link: #{$success-link};
+  --success-link-hover: #{$success-link-hover};
+
+  // Error Colors
+  --error-red: #{$error-red};
+  --error-red-hover: #{$error-red-hover};
+  --error-red-light: #{$error-red-light};
+  --error-red-dark: #{$error-red-dark};
+  --error-red-dark-hover: #{$error-red-dark-hover};
+  --error-text: #{$error-text};
+
+  // Background Colors
+  --bg-white: #{$bg-white};
+  --bg-white-alt: #{$bg-white-alt};
+  --bg-light-gray: #{$bg-light-gray};
+  --bg-very-light-gray: #{$bg-very-light-gray};
+  --bg-header-gray: #{$bg-header-gray};
+  --bg-sidebar: #{$bg-sidebar};
+  --bg-legend: #{$bg-legend};
+  --bg-dark: #{$bg-dark};
+  --bg-dark-secondary: #{$bg-dark-secondary};
+  --bg-dark-tertiary: #{$bg-dark-tertiary};
+  --bg-dark-card: #{$bg-dark-card};
+  --bg-dark-input: #{$bg-dark-input};
+  --bg-dark-slot: #{$bg-dark-slot};
+  --bg-dark-loading: #{$bg-dark-loading};
+  --bg-dark-appt-label: #{$bg-dark-appt-label};
+
+  // Gradient Colors
+  --gradient-start: #{$gradient-start};
+  --gradient-end: #{$gradient-end};
+  --gradient-dark-start: #{$gradient-dark-start};
+  --gradient-dark-end: #{$gradient-dark-end};
+
+  // Border Colors
+  --border-light: #{$border-light};
+  --border-gray: #{$border-gray};
+  --border-light-gray: #{$border-light-gray};
+  --border-dark: #{$border-dark};
+  --border-dark-secondary: #{$border-dark-secondary};
+  --border-dark-tertiary: #{$border-dark-tertiary};
+  --border-legend-light: #{$border-legend-light};
+  --border-legend-dark: #{$border-legend-dark};
+
+  // Text Colors
+  --text-dark: #{$text-dark};
+  --text-medium: #{$text-medium};
+  --text-medium-alt: #{$text-medium-alt};
+  --text-light: #{$text-light};
+  --text-light-alt: #{$text-light-alt};
+  --text-gray: #{$text-gray};
+  --text-gray-dark: #{$text-gray-dark};
+  --text-medium-gray: #{$text-medium-gray};
+  --text-white: #{$text-white};
+  --text-white-alt: #{$text-white-alt};
+  --text-error: #{$text-error};
+  --text-link: #{$text-link};
+  --text-header: #{$text-header};
+  --text-purple: #{$text-purple};
+  --text-blue: #{$text-blue};
+  --text-white-transparent: #{$text-white-transparent};
+
+  // Button Colors
+  --btn-danger: #{$btn-danger};
+  --btn-danger-hover: #{$btn-danger-hover};
+
+  // Modal Colors
+  --modal-overlay: #{$modal-overlay};
+  --modal-overlay-dark: #{$modal-overlay-dark};
+
+  // Overlay Colors
+  --overlay-light: #{$overlay-light};
+  --overlay-light-hover: #{$overlay-light-hover};
+  --overlay-dark: #{$overlay-dark};
+  --overlay-sidebar: #{$overlay-sidebar};
+  --overlay-blur: #{$overlay-blur};
+
+  // Shadow Colors
+  --shadow-blue-light: #{$shadow-blue-light};
+  --shadow-blue-dark: #{$shadow-blue-dark};
+  --shadow-blue-focus: #{$shadow-blue-focus};
+  --shadow-blue-focus-light: #{$shadow-blue-focus-light};
+  --shadow-dark: #{$shadow-dark};
+  --shadow-light: #{$shadow-light};
+  --shadow-medium: #{$shadow-medium};
+  --shadow-modal: #{$shadow-modal};
+  --shadow-sidebar: #{$shadow-sidebar};
+  --shadow-appointment: #{$shadow-appointment};
+  --shadow-appointment-light: #{$shadow-appointment-light};
+  --shadow-appointment-hover: #{$shadow-appointment-hover};
+  --shadow-dark-card: #{$shadow-dark-card};
+  --shadow-now-line: #{$shadow-now-line};
+
+  // Special Colors
+  --now-line-color: #{$now-line-color};
+  --highlight-border: #{$highlight-border};
+
+  // Dynamic theme variables (will be overridden in dark theme)
+  --bg-color: #{$bg-white};
+  --text-color: #{$text-dark};
+  --slot-bg: #{$bg-white};
+  --border-color: #{$border-light-gray};
+  --header-bg: #{$bg-header-gray};
+  --card-bg: #{$bg-white};
+  --card-border: #{$border-light-gray};
+  --input-bg: #{$bg-white};
+}
+
+// ===========================
+// Dark Theme Overrides
+// ===========================
+body[data-theme="dark"] {
+  // Dynamic theme variables for dark mode
+  --bg-color: #{$bg-dark};
+  --text-color: #{$text-white};
+  --slot-bg: #{$bg-dark-slot};
+  --border-color: #{$border-dark-secondary};
+  --header-bg: #{$bg-dark-secondary};
+  --card-bg: #{$bg-dark-card};
+  --card-border: #{$border-dark-secondary};
+  --input-bg: #{$bg-dark-input};
+}

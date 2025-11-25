@@ -1,0 +1,139 @@
+// Import variables
+@import './variables';
+
+.timeline {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow-y: auto;
+  background: var(--bg-very-light-gray);
+  height: calc(100vh - 100px);
+  
+  .timeline-grid {
+    position: relative;
+    z-index: 1;
+    padding-left: 80px;
+    height: calc(48 * 80px); /* 48 slots * slot height */
+  }
+  
+  .slots-container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .time-slot {
+    position: relative;
+    border-top: 1px solid var(--border-light-gray);
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .time-label {
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    font-size: 15px;
+    color: var(--text-medium);
+  }
+  
+  .appointments-container {
+    position: relative;
+    width: 100%;
+    top: 0;
+    
+    .appointment-block {
+      position: absolute;
+      left: 10px;
+      right: 20px;
+      background: var(--primary-blue);
+      color: white;
+      border-radius: 4px;
+      padding: 8px;
+      font-size: 13px;
+      box-shadow: 0 1px 3px var(--shadow-appointment-light);
+      z-index: 2;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px var(--shadow-appointment-hover);
+        background: var(--primary-blue-hover);
+      }
+      
+      // Smooth movement animation
+      &.moving {
+        transition: top 0.3s ease, height 0.3s ease;
+      }
+      
+      // Highlight animation
+      &.highlight {
+        animation: highlightFade 20s forwards;
+      }
+    }
+  }
+  
+  .now-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--now-line-color);
+    z-index: 3;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background: var(--now-line-color);
+      border-radius: 50%;
+      box-shadow: 0 0 4px var(--shadow-now-line);
+    }
+  }
+}
+
+@keyframes highlightFade {
+  0% {
+    border: 2px solid var(--highlight-border);
+  }
+  100% {
+    border: 2px solid transparent;
+  }
+}
+
+/* Dark Theme Overrides */
+body[data-theme="dark"] .timeline {
+  background: var(--bg-color);
+  
+  .time-slot {
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .time-label {
+    color: var(--text-light-alt);
+  }
+  
+  .appointments-container {
+    .appointment-block {
+      background: var(--primary-blue);
+      
+      &:hover {
+        background: var(--primary-blue-hover);
+      }
+    }
+  }
+  
+  .now-line {
+    background: var(--now-line-color);
+    
+    &::before {
+      background: var(--now-line-color);
+    }
+  }
+}

@@ -1,0 +1,171 @@
+// Import variables
+@import './variables';
+
+/* Print Styles */
+@media print {
+  body {
+    background: var(--bg-white) !important;
+    color: var(--text-dark) !important;
+  }
+  
+  /* Hide non-essential UI elements */
+  .page-header,
+  .add-btn,
+  .theme-toggle,
+  .sidebar,
+  .time-slot {
+    display: none !important;
+  }
+  
+  /* Only show appointments */
+  .timeline,
+  .appointments-container {
+    display: block !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  
+  .appointment-block {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    page-break-inside: avoid; /* avoid breaking appointment across pages */
+    background: var(--bg-white) !important;
+    color: var(--text-dark) !important;
+    border: 1px solid var(--border-dark) !important;
+    box-shadow: none !important; /* Remove shadows for print */
+  }
+  
+  /* Print-specific appointment styling */
+  .appointment-block {
+    margin-bottom: 8px !important;
+    padding: 8px !important;
+    
+    /* Ensure text is readable in print */
+    .appointment-title {
+      font-weight: bold;
+      color: var(--text-dark) !important;
+    }
+    
+    .appointment-time {
+      font-size: 12px;
+      color: var(--text-medium-gray) !important;
+    }
+    
+    .appointment-description {
+      font-size: 11px;
+      color: var(--text-medium) !important;
+    }
+  }
+  
+  /* Week view print styles */
+  .week-view {
+    .week-grid {
+      border: 1px solid var(--border-dark) !important;
+    }
+    
+    .week-day {
+      border: 1px solid var(--border-light-gray) !important;
+      
+      .day-header {
+        color: var(--text-dark) !important;
+        font-weight: bold;
+      }
+      
+      .appointment-block {
+        background: var(--bg-white) !important;
+        color: var(--text-dark) !important;
+        border: 1px solid var(--border-light-gray) !important;
+      }
+    }
+  }
+  
+  /* Month view print styles */
+  .month-view {
+    .month-grid {
+      border: 1px solid var(--border-dark) !important;
+    }
+    
+    .month-cell {
+      border: 1px solid var(--border-light-gray) !important;
+      
+      .cell-date {
+        color: var(--text-dark) !important;
+        font-weight: bold;
+      }
+      
+      .cell-appt {
+        background: var(--bg-white) !important;
+        color: var(--text-dark) !important;
+        border: 1px solid var(--border-light-gray) !important;
+      }
+    }
+  }
+  
+  /* Timeline print styles */
+  .timeline {
+    background: var(--bg-white) !important;
+    
+    .time-label {
+      color: var(--text-medium-gray) !important;
+    }
+  }
+  
+  /* Hide dark theme specific elements */
+  body[data-theme="dark"] {
+    background: var(--bg-white) !important;
+    color: var(--text-dark) !important;
+    
+    * {
+      background: var(--bg-white) !important;
+      color: var(--text-dark) !important;
+    }
+  }
+  
+  /* Print page formatting */
+  @page {
+    margin: 1in;
+    size: letter;
+  }
+  
+  /* Ensure proper page breaks */
+  .week-day,
+  .month-cell {
+    page-break-inside: avoid;
+  }
+  
+  /* Print headers */
+  .print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 20px;
+    
+    h1 {
+      color: var(--text-dark) !important;
+      font-size: 18px;
+      margin: 0;
+    }
+    
+    .print-date {
+      color: var(--text-medium) !important;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  }
+}
+
+/* Print-only elements (hidden on screen) */
+.print-only {
+  display: none;
+}
+
+@media print {
+  .print-only {
+    display: block !important;
+  }
+  
+  .screen-only {
+    display: none !important;
+  }
+}
